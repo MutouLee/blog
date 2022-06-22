@@ -28,8 +28,11 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        //导航数据
-        $navigation = Navigation::query()->where('parent_id', 0)->where('show', 1)->orderBy('order')->get();
-        View::share(compact('navigation'));
+        if(!app()->runningInConsole()){
+            //导航数据
+            $navigation = Navigation::query()->where('parent_id', 0)->where('show', 1)->orderBy('order')->get();
+            View::share(compact('navigation'));
+        }
+        
     }
 }
