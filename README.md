@@ -30,3 +30,7 @@
 ## 感谢
 - Laravel
 - Dcat Admin
+
+## License
+
+The Blog is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
