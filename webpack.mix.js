@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const glob = require('glob');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,4 +12,7 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.sass('resources/sass/app.scss', 'public/css').version();
+let sassFiles = glob.sync('resources/sass/*.scss');
+for (let file of sassFiles) {
+    mix.sass(file, 'public/css/').version();
+}
