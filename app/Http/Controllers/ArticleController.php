@@ -4,6 +4,7 @@ use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
@@ -75,4 +76,11 @@ class ArticleController extends Controller
             'articles' => view('article_list_ajax', compact('articles'))->render()
         ]);
     }
+
+
+    public funtion getSummary($content, $lenght = 200)
+    {
+        return Str::limit(strip_tags($content), $length);
+    }
+    
 }
